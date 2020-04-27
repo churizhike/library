@@ -24,7 +24,7 @@ export default {
     },
     chartData: {
       type: Object,
-      require: true
+      required: true
     }
   },
   data() {

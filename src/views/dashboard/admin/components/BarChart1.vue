@@ -21,7 +21,7 @@ export default {
     },
     height: {
       type: String,
-      default: '300px'
+      default: '400px'
     },
     chartData: {
       type: Object,
@@ -85,8 +85,8 @@ export default {
           containLabel: true
         },
         xAxis: [{
-          type: 'category',
-          data: this.chartData.field,
+          // type: 'category',
+          // data: this.chartData.field,
           axisTick: {
             alignWithLabel: true
           },
@@ -95,6 +95,7 @@ export default {
               color: 'rgba(0,0,0,.3)'
             }
           },
+          type: 'value',
           axisLabel: {
             show: true,
             textStyle: {
@@ -103,7 +104,9 @@ export default {
           }
         }],
         yAxis: [{
+          data: this.chartData.field,
           type: 'value',
+          type: 'category',
           axisTick: {
             show: false
           },
@@ -112,6 +115,7 @@ export default {
               color: 'rgba(0,0,0,0)'
             }
           },
+          inverse: true,
           axisLabel: {
             show: true,
             textStyle: {
@@ -131,7 +135,8 @@ export default {
             type: 'bar',
             stack: this.type,
             seriesLayoutBy: 'row',
-            barMaxWidth: '35px',
+            // barMaxWidth: '35px',
+            stack: '总量',
             data: opt.value,
             animationDuration
           })

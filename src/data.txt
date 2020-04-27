@@ -1,0 +1,45 @@
+1.饼图
+1）不同口味（样本数100）
+data = [
+    {
+        field: '酸甜',
+        value: [
+            { value: 20, name: '男' },
+            { value: 80, name: '女' },
+        ]
+    },
+    {
+        field: '苦辣',
+        value: [
+            { value: 10, name: '男' },
+            { value: 90, name: '女' },
+        ]
+    }
+]
+2）不同类型：上面的数据中field换为类型名即可
+
+2.柱图/条形图
+data = {
+    
+    field: ['窗口A', '窗口B', '窗口C'],
+    value: [
+        { value: [1,2,3], name: '酸甜' }, // value值对应每个窗口每个口味的值
+        { value: [5,6,7], name: '苦辣' },
+        { value: [7,8,9], name: '清淡' }
+    ]
+}
+
+3.堆积图/折线图
+data = {
+    field: ['1月', '2月', '3月'],
+    value: [
+        { value: [1,2,3], name: '男' }, // value值对应每个月份男生/女生的值
+        { value: [5,6,7], name: '女' }
+    ]
+}
+
+4.地图
+mapData = { // 每次口味切换之后，重新给我一遍城市数据就可以
+    {value: 100, name: '北京'},
+    {value: 200, name: '上海'}
+}

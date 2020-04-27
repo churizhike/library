@@ -1,23 +1,46 @@
 <template>
   <div class="dashboard-editor-container">
-    <div>
+    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+      <line-chart :chart-data="lineData" />
+    </el-row>
+    <div style="margin-bottom:32px;">
       <el-row :gutter="32">
-        <el-col :xs="24" :sm="24" :lg="24">
-          <area-chart />
+        <el-col v-for="(item, index) in pieData" :key="index" :xs="24" :sm="24" :lg="8">
+          <div class="chart-wrapper">
+            <pie-chart :chart-data="item" />
+          </div>
         </el-col>
       </el-row>
+    </div>
+
+    <div style="margin-bottom:32px;">
+      <div class="chart-wrapper">
+        <bar-chart :chart-data="barData" :type="typeBar" />
+      </div>
+    </div>
+
+    <div style="margin-bottom:32px;">
+      <div class="chart-wrapper">
+        <bar-chart1 :chart-data="stackData" :type="typeStackBar" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import areaChart from './components/areaChart'
+import LineChart from './components/LineChart'
+import PieChart from './components/PieChart'
+import BarChart from './components/BarChart'
+import BarChart1 from './components/BarChart1'
 import axios from 'axios'
 
 export default {
   name: 'DashboardAdmin',
   components: {
-    areaChart
+    LineChart,
+    PieChart,
+    BarChart,
+    BarChart1
   },
   data() {
     return {
