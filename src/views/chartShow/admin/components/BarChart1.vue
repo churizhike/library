@@ -106,7 +106,6 @@ export default {
         yAxis: [{
           data: this.chartData.field,
           type: 'value',
-          type: 'category',
           axisTick: {
             show: false
           },
@@ -136,7 +135,6 @@ export default {
             stack: this.type,
             seriesLayoutBy: 'row',
             // barMaxWidth: '35px',
-            stack: '总量',
             data: opt.value,
             animationDuration
           })

@@ -14,7 +14,7 @@
           </el-select>
           <span>查看</span>
           <div>
-            <lineChart />
+            <lineChart :chart-data="chartData" />
           </div>
         </el-col>
       </el-row>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import lineChart from '../chartShow/admin/components/LineChart'
 export default {
   components: {
@@ -1681,7 +1681,12 @@ export default {
           'amount': '3231.77',
           'value': '196'
         }
-      ]
+      ],
+      dictMap: {
+        amount: '付费金额',
+        value: '人数'
+      },
+      chartData: {}
     }
   },
   watch: {
@@ -1691,25 +1696,67 @@ export default {
   },
   mounted() {
     this.getData(this.value)
+    this.handleList()
   },
   methods: {
     getData(val) {
-      axios.get('http://172.16.8.174:9876/report/data', {
-        headers: {
-          kind: val
-        }
-      }).then(response => {
-        if (response.status === 200) {
-          console.log(response.data)
-        }
-      })
+      // axios.get('http://172.16.8.174:9876/report/data', {
+      //   headers: {
+      //     kind: val
+      //   }
+      // }).then(response => {
+      //   if (response.status === 200) {
+      //     console.log(response.data)
+      //   }
+      // })
     },
     handleList() {
       const axisList = []
       const value = []
-      this.data.map(item => {
-
+      this.apiData.map(item => {
+        if (!axisList.includes(item.dateStr)) {
+          axisList.push(item.dateStr)
+        }
       })
+      axisList.sort()
+      axisList.map((date, index) => {
+        if (index === 0) {
+          this.apiData.map(item => {
+            if (item.dateStr === date) {
+              const temObj1 = {
+                name: item.dimension + ',' + '付费金额',
+                value: [item.amount]
+              }
+              const temObj2 = {
+                name: item.dimension + ',' + '人数',
+                value: [item.value]
+              }
+              value.push(temObj1, temObj2)
+            }
+          })
+        } else {
+          this.apiData.map(item => {
+            if (item.dateStr === date) {
+              const temKey1 = item.dimension + ',' + '付费金额'
+              const temKey2 = item.dimension + ',' + '人数'
+              console.log(value)
+              value.map(valueKey => {
+                if (valueKey.name === temKey1) {
+                  valueKey.value.push(item.amount)
+                }
+                if (valueKey.name === temKey2) {
+                  valueKey.value.push(item.value)
+                }
+              })
+            }
+          })
+        }
+      })
+      console.log(value)
+      this.chartData = {
+        field: axisList,
+        value: value
+      }
     }
   }
 }
