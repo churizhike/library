@@ -104,8 +104,9 @@ export default {
           }
         }],
         yAxis: [{
+          type: 'category',
           data: this.chartData.field,
-          type: 'value',
+          // type: 'value',
           axisTick: {
             show: false
           },

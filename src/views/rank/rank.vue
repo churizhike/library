@@ -1,12 +1,56 @@
 <template>
   <div>
-    rank:
+    <div class="dashboard-editor-container">
+      <div style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+        <div style="margin-top:20px;margin-left:16px">
+          <span>按</span>
+          <el-select v-model="value" placeholder="请选择" style="margin:0 10px">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+          <span>查看</span>
+        </div>
+        <el-row :gutter="32" style="margin-top:40px;padding-bottom:30px;margin-left:2px">
+          <el-col :xs="24" :sm="24" :lg="12">
+            <div>
+              <el-table
+                :data="rankData"
+                border
+                style="width: 100%"
+              >
+                <el-table-column
+                  prop="kind"
+                  label="口味"
+                />
+                <el-table-column
+                  prop="value"
+                  label="人数"
+                />
+              </el-table>
+            </div>
+          </el-col>
+          <el-col :xs="24" :sm="24" :lg="12">
+            <div>
+              <barChart1 :chart-data="chartData" />
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
+import barChart1 from '../chartShow/admin/components/BarChart'
 export default {
+  components: {
+    barChart1
+  },
   data() {
     return {
       options: [{
@@ -19,22 +63,68 @@ export default {
         value: 'taste',
         label: '口味'
       }],
-      value: 'taste'
+      value: 'taste',
+      tableData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1517 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1516 弄'
+      }],
+      rankData: [
+        {
+          kind: '香辣',
+          value: '28282'
+        },
+        {
+          'kind': '清淡',
+          'value': '17006'
+        },
+        {
+          'kind': '酸甜',
+          'value': '14969'
+        }
+      ],
+      chartData: {
+        field: [],
+        value: []
+      }
     }
   },
   mounted() {
     this.getData()
+    this.handleList()
   },
   methods: {
     getData() {
-      axios.get('http://172.16.8.174:9876/rank/data', {
-        headers: {
-          kind: 'taste'
-        }
-      }).then(response => {
-        if (response.status === 200) {
-          console.log(response.data)
-        }
+      // axios.get('http://172.16.8.174:9876/rank/data', {
+      //   headers: {
+      //     kind: 'taste'
+      //   }
+      // }).then(response => {
+      //   if (response.status === 200) {
+      //     console.log(response.data)
+      //   }
+      // })
+    },
+    handleList() {
+      this.chartData.value = [{
+        name: '',
+        value: []
+      }]
+      this.rankData.map(item => {
+        this.chartData.field.push(item.kind)
+        this.chartData.value[0].value.push(item.value)
       })
     }
   }

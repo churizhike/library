@@ -20,7 +20,7 @@ export default {
     },
     height: {
       type: String,
-      default: '350px'
+      default: '500px'
     },
     autoResize: {
       type: Boolean,
@@ -62,7 +62,6 @@ export default {
       this.setOptions(this.chartData)
     },
     setOptions({ expectedData, actualData } = {}) {
-      console.log(this.chartData.value)
       const options = {
         xAxis: {
           data: this.chartData.field,
@@ -75,7 +74,7 @@ export default {
         grid: {
           left: 10,
           right: 10,
-          bottom: 20,
+          bottom: 60,
           top: 30,
           containLabel: true
         },
@@ -118,7 +117,9 @@ export default {
           })
         })
       }
-      this.chart.setOption(options, true)
+      if (this.chart && this.chart.setOption) {
+        this.chart.setOption(options, true)
+      }
     }
   }
 }

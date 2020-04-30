@@ -26,10 +26,6 @@ export default {
     chartData: {
       type: Object,
       required: true
-    },
-    type: {
-      type: String,
-      required: true
     }
   },
   data() {
@@ -79,6 +75,7 @@ export default {
           }
         },
         grid: {
+          top: '2%',
           left: '2%',
           right: '2%',
           bottom: '3%',
@@ -118,10 +115,10 @@ export default {
               color: '#777C7C'
             }
           }
-        }],
-        legend: {
-          // data: [...filds] // 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
-        }
+        }]
+        // legend: { //自动生成
+        //   data: [1, 2, 3] // 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
+        // }
       }
       option.series = []
       if (this.chartData.value) {
@@ -129,7 +126,6 @@ export default {
           option.series.push({
             name: opt.name,
             type: 'bar',
-            stack: this.type,
             seriesLayoutBy: 'row',
             barMaxWidth: '35px',
             data: opt.value,

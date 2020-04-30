@@ -431,7 +431,8 @@ export default {
 
       for (var n = 0; n < year.length; n++) {
         optionXyMap01.options.push({
-          backgroundColor: '#013954',
+          // backgroundColor: '#64d9d6',
+          backgroundColor: '#fff',
           title: [{
             text: '',
             left: '25%',
@@ -518,10 +519,10 @@ export default {
                   }
                 }
               },
-              roam: true,
+              roam: false,
               itemStyle: {
                 normal: {
-                  areaColor: '#031525',
+                  areaColor: 'red',
                   borderColor: '#FFFFFF'
                 },
                 emphasis: {

@@ -2,7 +2,7 @@
   <div>
     <div class="dashboard-editor-container">
       <el-row :gutter="32" style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
-        <el-col :xs="24" :sm="24" :lg="24">
+        <el-col :xs="24" :sm="24" :lg="24" style="margin-top:20px">
           <span>按</span>
           <el-select v-model="value" placeholder="请选择" style="margin:0 10px">
             <el-option
@@ -13,7 +13,7 @@
             />
           </el-select>
           <span>查看</span>
-          <div>
+          <div style="margin-top:20px">
             <lineChart :chart-data="chartData" />
           </div>
         </el-col>
