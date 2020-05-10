@@ -10,14 +10,14 @@
 
           </el-col>
           <el-col :span="12" style="">
-            <div style="width: 100%;padding:16px;background:#fff;height:500px;">
+            <div style="width: 100%;padding:16px;background:#fff;height:500px;overflow:auto">
               <!-- <div style="text-align:center;margin-bottom:35px">
                 <span style="font-size:20px;font-weight:bold">口味人数变化表</span>
               </div> -->
               <el-table
                 :data="rankData"
                 border
-                style="width: 100%;margin-top:20px"
+                style="width: 100%;margin-top:20px;"
                 max-height="500"
                 :header-cell-style="{background:'#efefef',height:'60px'}"
                 header-align="center"
