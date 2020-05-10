@@ -7,6 +7,11 @@
     position: relative;
   }
 
+  // .el-menu-item {
+  //   height: 65px !important;
+  //   line-height: 65px !important;
+  // }
+
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth !important;
@@ -79,6 +84,8 @@
     & .el-submenu .el-menu-item {
       min-width: $sideBarWidth !important;
       background-color: $subMenuBg !important;
+      height: 65px !important;
+      line-height: 65px !important;
 
       &:hover {
         background-color: $subMenuHover !important;
@@ -185,6 +192,8 @@
     &:hover {
       // you can use $subMenuHover
       background-color: $menuHover !important;
+      height: 65px !important;
+      line-height: 65px !important;
     }
   }
 

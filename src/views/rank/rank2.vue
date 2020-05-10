@@ -7,11 +7,12 @@
             <div>
               <barChart1 :chart-data="chartData" :title='title' />
             </div>
+
           </el-col>
           <el-col :span="12" style="">
-            <div style="width: 100%;padding:16px;background:#fff;height:500px">
+            <div style="width: 100%;padding:16px;background:#fff;height:500px;">
               <!-- <div style="text-align:center;margin-bottom:35px">
-                <span style="font-size:20px;font-weight:bold;font-family: PingFang SC;">口味人数变化表</span>
+                <span style="font-size:20px;font-weight:bold">口味人数变化表</span>
               </div> -->
               <el-table
                 :data="rankData"
@@ -35,9 +36,6 @@
             </div>
           </el-col>
         </el-row>
-        <!-- <div>
-          <img src="./components/food2.gif" alt="" style="width: 100%;height: 230px;margin-top: 30px;">
-        </div> -->
       </div>
     </div>
   </div>
@@ -52,7 +50,7 @@ export default {
   },
   data() {
     return {
-      title: '热销口味纬度数据详情',
+      title: '热销菜品纬度数据详情',
       options: [{
         value: 'dish',
         label: '菜品'
@@ -107,7 +105,7 @@ export default {
     }
   },
   mounted() {
-    this.getData('taste')
+    this.getData('dish')
     this.handleList()
   },
   methods: {

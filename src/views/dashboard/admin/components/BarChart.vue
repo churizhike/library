@@ -21,14 +21,10 @@ export default {
     },
     height: {
       type: String,
-      default: '300px'
+      default: '500px'
     },
     chartData: {
       type: Object,
-      required: true
-    },
-    type: {
-      type: String,
       required: true
     }
   },
@@ -78,10 +74,29 @@ export default {
             type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
           }
         },
+        title: [
+          {
+            text: '菜品纬度口味详情柱形图',
+            subtext: '菜品纬度',
+            textStyle: {
+              color: '#2D3E53',
+              fontSize: 20,
+              fontWeight: 'bold'
+            },
+            subtextStyle: { // 对应样式
+              // color:'#F27CDE',
+              fontSize: 14
+            },
+            left: 20,
+            top: 15,
+            left: 'center'
+          }
+        ],
         grid: {
+          top: '15%',
           left: '2%',
           right: '2%',
-          bottom: '3%',
+          bottom: '13%',
           containLabel: true
         },
         xAxis: [{
@@ -120,7 +135,8 @@ export default {
           }
         }],
         legend: {
-          // data: [...filds] // 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
+          data: ['清淡', '酸甜', '香辣'],
+          bottom: 20
         }
       }
       option.series = []
@@ -129,7 +145,6 @@ export default {
           option.series.push({
             name: opt.name,
             type: 'bar',
-            stack: this.type,
             seriesLayoutBy: 'row',
             barMaxWidth: '35px',
             data: opt.value,

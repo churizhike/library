@@ -21,13 +21,13 @@ export default {
     },
     height: {
       type: String,
-      default: '400px'
+      default: '500px'
     },
     chartData: {
       type: Object,
       required: true
     },
-    type: {
+    title: {
       type: String,
       required: true
     }
@@ -79,11 +79,30 @@ export default {
           }
         },
         grid: {
+          top: '15%',
           left: '2%',
           right: '2%',
-          bottom: '3%',
+          bottom: '5%',
           containLabel: true
         },
+        title: [
+          {
+            text: this.title,
+            subtext: this.title.substring(0, 4),
+            textStyle: {
+              color: '#2D3E53',
+              fontSize: 20,
+              fontWeight: 'bold'
+            },
+            subtextStyle: { // 对应样式
+              // color:'#F27CDE',
+              fontSize: 14
+            },
+            left: 20,
+            top: 15,
+            left: 'center'
+          }
+        ],
         xAxis: [{
           // type: 'category',
           // data: this.chartData.field,
@@ -124,7 +143,8 @@ export default {
           }
         }],
         legend: {
-          // data: [...filds] // 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
+          data: ['酸甜', '清淡', '香辣'], // 图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
+          bottom: 20
         }
       }
       option.series = []
@@ -135,7 +155,7 @@ export default {
             type: 'bar',
             stack: this.type,
             seriesLayoutBy: 'row',
-            // barMaxWidth: '35px',
+            barMaxWidth: '35px',
             data: opt.value,
             animationDuration
           })

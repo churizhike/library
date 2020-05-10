@@ -25,7 +25,7 @@
             border
             :header-cell-style="{background:'#efefef',height:'60px'}"
             header-align="center"
-            style="width: 100%;"
+            style="width: 100%"
             :default-sort="{prop: 'dateStr', order: 'ascending'}"
           >
             <el-table-column
@@ -36,7 +36,7 @@
             />
             <el-table-column
               prop="dimension"
-              label="口味"
+              label="菜品"
               align="center"
               sortable
             />
@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       loading: false,
-      title: '口味纬度数据详情',
+      title: '菜品纬度数据详情',
       options: [{
         value: 'dish',
         label: '菜品'
@@ -80,7 +80,7 @@ export default {
         value: 'taste',
         label: '口味'
       }],
-      value: 'taste',
+      value: 'dish',
       apiData: [],
       dictMap: {
         amount: '付费金额',

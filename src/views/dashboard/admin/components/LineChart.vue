@@ -20,7 +20,7 @@ export default {
     },
     height: {
       type: String,
-      default: '350px'
+      default: '500px'
     },
     autoResize: {
       type: Boolean,
@@ -62,7 +62,6 @@ export default {
       this.setOptions(this.chartData)
     },
     setOptions({ expectedData, actualData } = {}) {
-      console.log(this.chartData.value)
       const options = {
         xAxis: {
           data: this.chartData.field,
@@ -72,11 +71,29 @@ export default {
           // },
           type: 'category'
         },
+        title: [
+          {
+            text: '日期纬度口味趋势折线图',
+            subtext: '日期纬度',
+            textStyle: {
+              color: '#2D3E53',
+              fontSize: 20,
+              fontWeight: 'bold'
+            },
+            subtextStyle: { // 对应样式
+              // color:'#F27CDE',
+              fontSize: 14
+            },
+            left: 20,
+            top: 15,
+            left: 'center'
+          }
+        ],
         grid: {
           left: 10,
           right: 10,
-          bottom: 20,
-          top: 30,
+          bottom: 60,
+          top: 100,
           containLabel: true
         },
         tooltip: {
@@ -92,7 +109,8 @@ export default {
           }
         },
         legend: {
-          data: ['expected', 'actual']
+          data: ['清淡', '酸甜', '香辣'],
+          bottom: 20
         }
       }
       options.series = []
@@ -118,7 +136,9 @@ export default {
           })
         })
       }
-      this.chart.setOption(options, true)
+      if (this.chart && this.chart.setOption) {
+        this.chart.setOption(options, true)
+      }
     }
   }
 }

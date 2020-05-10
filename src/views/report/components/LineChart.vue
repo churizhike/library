@@ -5,7 +5,8 @@
 <script>
 import echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
-import resize from './mixins/resize'
+import resize from '../../dashboard/admin/components/mixins/resize'
+// import resize from './mixins/resize'
 
 export default {
   mixins: [resize],
@@ -28,6 +29,10 @@ export default {
     },
     chartData: {
       type: Object,
+      required: true
+    },
+    title: {
+      type: String,
       required: true
     }
   },
@@ -71,11 +76,29 @@ export default {
           // },
           type: 'category'
         },
+        title: [
+          {
+            text: this.title,
+            subtext: this.title.substring(0, 4),
+            textStyle: {
+              color: '#2D3E53',
+              fontSize: 20,
+              fontWeight: 'bold'
+            },
+            subtextStyle: { // 对应样式
+              // color:'#F27CDE',
+              fontSize: 14
+            },
+            left: 20,
+            top: 0,
+            left: 'center'
+          }
+        ],
         grid: {
           left: 10,
           right: 10,
           bottom: 60,
-          top: 30,
+          top: 60,
           containLabel: true
         },
         tooltip: {
@@ -91,7 +114,8 @@ export default {
           }
         },
         legend: {
-          data: ['expected', 'actual']
+          data: ['清淡,付费金额', '清淡,人数', '酸甜,付费金额', '酸甜,人数', '香辣,付费金额', '香辣,人数'],
+          bottom: 20
         }
       }
       options.series = []

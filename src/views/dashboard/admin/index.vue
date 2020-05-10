@@ -1,22 +1,65 @@
 <template>
   <div class="dashboard-editor-container">
-    <div>
+    <div style="margin-bottom:32px;padding:0 16px">
       <el-row :gutter="32">
-        <el-col :xs="24" :sm="24" :lg="24">
+        <el-col :xs="24" :sm="24" :lg="18" style="background:#fff;">
+          <!-- <line-chart :chart-data="lineData" style="background:#fff;margin-bottom:30px" />
+          <bar-chart :chart-data="barData" :type="typeBar" style="background:#fff;margin-bottom:30px" /> -->
           <area-chart />
         </el-col>
+        <el-col :xs="24" :sm="24" :lg="6">
+          <div v-for="(item, index) in pieData" :key="index" class="chart-wrapper">
+            <pie-chart :chart-data="item" :index-num="index" />
+          </div>
+        </el-col>
       </el-row>
+    </div>
+
+    <line-chart :chart-data="lineData" style="background:#fff;margin-bottom:30px" />
+
+    <!-- <div style="margin-bottom:32px;">
+      <el-row :gutter="32">
+        <el-col :xs="24" :sm="24" :lg="18" style="padding:16px 16px 0;margin-bottom:32px;">
+          <line-chart :chart-data="lineData" style="background:#fff;margin-bottom:30px" />
+          <bar-chart :chart-data="barData" :type="typeBar" style="background:#fff;margin-bottom:30px" />
+        </el-col>
+        <el-col :xs="24" :sm="24" :lg="6" style="padding-top:16px">
+          <div v-for="(item, index) in pieData" :key="index" class="chart-wrapper">
+            <pie-chart :chart-data="item" />
+          </div>
+        </el-col>
+      </el-row>
+    </div> -->
+
+    <div style="margin-bottom:32px;">
+      <div style="background:#fff;">
+        <bar-chart :chart-data="barData" :type="typeBar" />
+      </div>
+    </div>
+
+    <div style="margin-bottom:32px;">
+      <div class="chart-wrapper">
+        <bar-chart1 :chart-data="stackData" :type="typeStackBar" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import areaChart from './components/areaChart'
+import LineChart from './components/LineChart'
+import PieChart from './components/PieChart'
+import BarChart from './components/BarChart'
+import BarChart1 from './components/BarChart1'
+import areaChart from './components/areaChart1'
 import axios from 'axios'
 
 export default {
   name: 'DashboardAdmin',
   components: {
+    LineChart,
+    PieChart,
+    BarChart,
+    BarChart1,
     areaChart
   },
   data() {
@@ -41,6 +84,7 @@ export default {
       axios.get('http://172.16.8.174:9876/dimension/bar').then(response => {
         if (response.status === 200) {
           this.pieData = response.data
+          console.log(88888888888888)
         }
       })
     },

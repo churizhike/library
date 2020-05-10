@@ -10,6 +10,7 @@
         :unique-opened="false"
         :active-text-color="variables.menuActiveText"
         :collapse-transition="false"
+        :default-openeds="openedOption"
         mode="vertical"
       >
         <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" />
@@ -36,8 +37,10 @@ export default {
       const { meta, path } = route
       // if set path, the sidebar will highlight the path you set
       if (meta.activeMenu) {
+        console.log(9999999, meta.activeMenu)
         return meta.activeMenu
       }
+      console.log(9999999, meta.activeMenu, path)
       return path
     },
     showLogo() {
@@ -48,6 +51,11 @@ export default {
     },
     isCollapse() {
       return !this.sidebar.opened
+    }
+  },
+  data() {
+    return {
+      openedOption: ['/report', '/rank']
     }
   }
 }

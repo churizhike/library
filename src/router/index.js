@@ -79,20 +79,7 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
-      }
-    ]
-  },
-  {
-    path: '/chartShow',
-    component: Layout,
-    redirect: '/chartShow/index',
-    children: [
-      {
-        path: 'chartShow',
-        component: () => import('@/views/chartShow/index'),
-        name: 'chartShow',
-        meta: { title: '数据展示', icon: 'dashboard', affix: true }
+        meta: { title: '用户画像', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -100,12 +87,25 @@ export const constantRoutes = [
     path: '/report',
     component: Layout,
     redirect: '/report/report',
+    meta: { title: '趋势分析', icon: 'dashboard', affix: true },
     children: [
       {
         path: 'report',
         component: () => import('@/views/report/report'),
         name: 'report',
-        meta: { title: '数据报表', icon: 'dashboard', affix: true }
+        meta: { title: '口味纬度分析', icon: 'dashboard', affix: true }
+      },
+      {
+        path: 'report1',
+        component: () => import('@/views/report/report1'),
+        name: 'report',
+        meta: { title: '窗口纬度分析', icon: 'dashboard', affix: true }
+      },
+      {
+        path: 'report2',
+        component: () => import('@/views/report/report2'),
+        name: 'report',
+        meta: { title: '菜品纬度分析', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -113,12 +113,25 @@ export const constantRoutes = [
     path: '/rank',
     component: Layout,
     redirect: '/rank/rank',
+    meta: { title: '热销纬度', icon: 'dashboard', affix: true },
     children: [
       {
         path: 'rank',
         component: () => import('@/views/rank/rank'),
         name: 'rank',
-        meta: { title: '排名热榜', icon: 'dashboard', affix: true }
+        meta: { title: '热销口味', icon: 'dashboard', affix: true }
+      },
+      {
+        path: 'rank1',
+        component: () => import('@/views/rank/rank1'),
+        name: 'rank',
+        meta: { title: '热销窗口', icon: 'dashboard', affix: true }
+      },
+      {
+        path: 'rank2',
+        component: () => import('@/views/rank/rank2'),
+        name: 'rank',
+        meta: { title: '热销菜品', icon: 'dashboard', affix: true }
       }
     ]
   }

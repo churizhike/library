@@ -159,7 +159,7 @@ export default {
 
 <style scoped>
 .mixin-components-container {
-  background-color: #f0f2f5;
+  background-color: #013954;
   padding: 30px;
   min-height: calc(100vh - 84px);
 }
