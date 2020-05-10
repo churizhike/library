@@ -14,7 +14,7 @@
           </el-select>
           <span>查看</span> -->
           <div style="">
-            <lineChart :chart-data="chartData" :title='title' />
+            <lineChart :chart-data="chartData" :title="title" />
           </div>
         </el-col>
       </el-row>

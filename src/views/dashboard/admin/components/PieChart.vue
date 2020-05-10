@@ -73,7 +73,7 @@ export default {
             subtextStyle: { // 对应样式
               // color:'#F27CDE',
               fontSize: 14,
-              top: -5,
+              top: -5
             },
             top: -5,
             left: 'center'
@@ -106,7 +106,7 @@ export default {
       }
       console.log(this.indexNum)
       if (this.indexNum !== 0) {
-        delete(temOption.title)
+        delete (temOption.title)
       }
 
       this.chart.setOption(temOption)

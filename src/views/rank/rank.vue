@@ -5,7 +5,7 @@
         <el-row :gutter="32">
           <el-col :span="12" style="background:#fff;">
             <div>
-              <barChart1 :chart-data="chartData" :title='title' />
+              <barChart1 :chart-data="chartData" :title="title" />
             </div>
           </el-col>
           <el-col :span="12" style="">

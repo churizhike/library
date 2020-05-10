@@ -33,400 +33,400 @@ export default {
       var chartData = [
         [
           {
-              "name":"山东",
-              "value":"188"
+            'name': '山东',
+            'value': '188'
           },
           {
-              "name":"江苏",
-              "value":"605"
+            'name': '江苏',
+            'value': '605'
           },
           {
-              "name":"内蒙古",
-              "value":"185"
+            'name': '内蒙古',
+            'value': '185'
           },
           {
-              "name":"四川",
-              "value":"933"
+            'name': '四川',
+            'value': '933'
           },
           {
-              "name":"宁夏",
-              "value":"538"
+            'name': '宁夏',
+            'value': '538'
           },
           {
-              "name":"湖北",
-              "value":"933"
+            'name': '湖北',
+            'value': '933'
           },
           {
-              "name":"黑龙江",
-              "value":"811"
+            'name': '黑龙江',
+            'value': '811'
           },
           {
-              "name":"澳门",
-              "value":"1"
+            'name': '澳门',
+            'value': '1'
           },
           {
-              "name":"陕西",
-              "value":"1290"
+            'name': '陕西',
+            'value': '1290'
           },
           {
-              "name":"安徽",
-              "value":"2432"
+            'name': '安徽',
+            'value': '2432'
           },
           {
-              "name":"海南",
-              "value":"182"
+            'name': '海南',
+            'value': '182'
           },
           {
-              "name":"福建",
-              "value":"224"
+            'name': '福建',
+            'value': '224'
           },
           {
-              "name":"西藏",
-              "value":"199"
+            'name': '西藏',
+            'value': '199'
           },
           {
-              "name":"吉林",
-              "value":"734"
+            'name': '吉林',
+            'value': '734'
           },
           {
-              "name":"辽宁",
-              "value":"1164"
+            'name': '辽宁',
+            'value': '1164'
           },
           {
-              "name":"江西",
-              "value":"202"
+            'name': '江西',
+            'value': '202'
           },
           {
-              "name":"东京都",
-              "value":"1"
+            'name': '东京都',
+            'value': '1'
           },
           {
-              "name":"甘肃",
-              "value":"188"
+            'name': '甘肃',
+            'value': '188'
           },
           {
-              "name":"广西",
-              "value":"189"
+            'name': '广西',
+            'value': '189'
           },
           {
-              "name":"新疆",
-              "value":"182"
+            'name': '新疆',
+            'value': '182'
           },
           {
-              "name":"中国",
-              "value":"100"
+            'name': '中国',
+            'value': '100'
           },
           {
-              "name":"广东",
-              "value":"433"
+            'name': '广东',
+            'value': '433'
           },
           {
-              "name":"上海",
-              "value":"636"
+            'name': '上海',
+            'value': '636'
           },
           {
-              "name":"河北",
-              "value":"387"
+            'name': '河北',
+            'value': '387'
           },
           {
-              "name":"山西",
-              "value":"2099"
+            'name': '山西',
+            'value': '2099'
           },
           {
-              "name":"北京",
-              "value":"941"
+            'name': '北京',
+            'value': '941'
           },
           {
-              "name":"浙江",
-              "value":"992"
+            'name': '浙江',
+            'value': '992'
           },
           {
-              "name":"河南",
-              "value":"201"
+            'name': '河南',
+            'value': '201'
           },
           {
-              "name":"贵州",
-              "value":"177"
+            'name': '贵州',
+            'value': '177'
           },
           {
-              "name":"天津",
-              "value":"1338"
+            'name': '天津',
+            'value': '1338'
           },
           {
-              "name":"青海",
-              "value":"552"
+            'name': '青海',
+            'value': '552'
           },
           {
-              "name":"大阪府",
-              "value":"1"
+            'name': '大阪府',
+            'value': '1'
           },
           {
-              "name":"湖南",
-              "value":"181"
+            'name': '湖南',
+            'value': '181'
           },
           {
-              "name":"重庆",
-              "value":"541"
+            'name': '重庆',
+            'value': '541'
           },
           {
-              "name":"云南",
-              "value":"205"
+            'name': '云南',
+            'value': '205'
           }
         ],
         [
           {
-              "name": "天津",
-              "value": "2667"
+            'name': '天津',
+            'value': '2667'
           },
           {
-              "name": "江苏",
-              "value": "481"
+            'name': '江苏',
+            'value': '481'
           },
           {
-              "name": "西藏",
-              "value": "385"
+            'name': '西藏',
+            'value': '385'
           },
           {
-              "name": "湖南",
-              "value": "363"
+            'name': '湖南',
+            'value': '363'
           },
           {
-              "name": "宁夏",
-              "value": "1162"
+            'name': '宁夏',
+            'value': '1162'
           },
           {
-              "name": "陕西",
-              "value": "2629"
+            'name': '陕西',
+            'value': '2629'
           },
           {
-              "name": "青海",
-              "value": "1155"
+            'name': '青海',
+            'value': '1155'
           },
           {
-              "name": "湖北",
-              "value": "1823"
+            'name': '湖北',
+            'value': '1823'
           },
           {
-              "name": "云南",
-              "value": "363"
+            'name': '云南',
+            'value': '363'
           },
           {
-              "name": "中国",
-              "value": "47"
+            'name': '中国',
+            'value': '47'
           },
           {
-              "name": "黑龙江",
-              "value": "1540"
+            'name': '黑龙江',
+            'value': '1540'
           },
           {
-              "name": "江西",
-              "value": "387"
+            'name': '江西',
+            'value': '387'
           },
           {
-              "name": "贵州",
-              "value": "384"
+            'name': '贵州',
+            'value': '384'
           },
           {
-              "name": "福建",
-              "value": "403"
+            'name': '福建',
+            'value': '403'
           },
           {
-              "name": "广东",
-              "value": "712"
+            'name': '广东',
+            'value': '712'
           },
           {
-              "name": "山西",
-              "value": "4221"
+            'name': '山西',
+            'value': '4221'
           },
           {
-              "name": "山东",
-              "value": "364"
+            'name': '山东',
+            'value': '364'
           },
           {
-              "name": "四川",
-              "value": "1936"
+            'name': '四川',
+            'value': '1936'
           },
           {
-              "name": "浙江",
-              "value": "1934"
+            'name': '浙江',
+            'value': '1934'
           },
           {
-              "name": "广西",
-              "value": "392"
+            'name': '广西',
+            'value': '392'
           },
           {
-              "name": "安徽",
-              "value": "968"
+            'name': '安徽',
+            'value': '968'
           },
           {
-              "name": "吉林",
-              "value": "1477"
+            'name': '吉林',
+            'value': '1477'
           },
           {
-              "name": "河南",
-              "value": "377"
+            'name': '河南',
+            'value': '377'
           },
           {
-              "name": "甘肃",
-              "value": "332"
+            'name': '甘肃',
+            'value': '332'
           },
           {
-              "name": "海南",
-              "value": "374"
+            'name': '海南',
+            'value': '374'
           },
           {
-              "name": "河北",
-              "value": "814"
+            'name': '河北',
+            'value': '814'
           },
           {
-              "name": "北京",
-              "value": "1938"
+            'name': '北京',
+            'value': '1938'
           },
           {
-              "name": "上海",
-              "value": "1155"
+            'name': '上海',
+            'value': '1155'
           },
           {
-              "name": "辽宁",
-              "value": "2287"
+            'name': '辽宁',
+            'value': '2287'
           },
           {
-              "name": "重庆",
-              "value": "1132"
+            'name': '重庆',
+            'value': '1132'
           },
           {
-              "name": "内蒙古",
-              "value": "404"
+            'name': '内蒙古',
+            'value': '404'
           },
           {
-              "name": "新疆",
-              "value": "406"
+            'name': '新疆',
+            'value': '406'
           }
         ],
         [
           {
-              "name": "贵州",
-              "value": "191"
+            'name': '贵州',
+            'value': '191'
           },
           {
-              "name": "广西",
-              "value": "186"
+            'name': '广西',
+            'value': '186'
           },
           {
-              "name": "北京",
-              "value": "923"
+            'name': '北京',
+            'value': '923'
           },
           {
-              "name": "青海",
-              "value": "568"
+            'name': '青海',
+            'value': '568'
           },
           {
-              "name": "河南",
-              "value": "170"
+            'name': '河南',
+            'value': '170'
           },
           {
-              "name": "河北",
-              "value": "373"
+            'name': '河北',
+            'value': '373'
           },
           {
-              "name": "海南",
-              "value": "205"
+            'name': '海南',
+            'value': '205'
           },
           {
-              "name": "湖北",
-              "value": "953"
+            'name': '湖北',
+            'value': '953'
           },
           {
-              "name": "江西",
-              "value": "170"
+            'name': '江西',
+            'value': '170'
           },
           {
-              "name": "福建",
-              "value": "187"
+            'name': '福建',
+            'value': '187'
           },
           {
-              "name": "云南",
-              "value": "216"
+            'name': '云南',
+            'value': '216'
           },
           {
-              "name": "山西",
-              "value": "2021"
+            'name': '山西',
+            'value': '2021'
           },
           {
-              "name": "甘肃",
-              "value": "202"
+            'name': '甘肃',
+            'value': '202'
           },
           {
-              "name": "广东",
-              "value": "361"
+            'name': '广东',
+            'value': '361'
           },
           {
-              "name": "浙江",
-              "value": "928"
+            'name': '浙江',
+            'value': '928'
           },
           {
-              "name": "新疆",
-              "value": "199"
+            'name': '新疆',
+            'value': '199'
           },
           {
-              "name": "山东",
-              "value": "179"
+            'name': '山东',
+            'value': '179'
           },
           {
-              "name": "辽宁",
-              "value": "1158"
+            'name': '辽宁',
+            'value': '1158'
           },
           {
-              "name": "黑龙江",
-              "value": "735"
+            'name': '黑龙江',
+            'value': '735'
           },
           {
-              "name": "天津",
-              "value": "1329"
+            'name': '天津',
+            'value': '1329'
           },
           {
-              "name": "吉林",
-              "value": "719"
+            'name': '吉林',
+            'value': '719'
           },
           {
-              "name": "内蒙古",
-              "value": "204"
+            'name': '内蒙古',
+            'value': '204'
           },
           {
-              "name": "重庆",
-              "value": "611"
+            'name': '重庆',
+            'value': '611'
           },
           {
-              "name": "湖南",
-              "value": "173"
+            'name': '湖南',
+            'value': '173'
           },
           {
-              "name": "宁夏",
-              "value": "535"
+            'name': '宁夏',
+            'value': '535'
           },
           {
-              "name": "四川",
-              "value": "913"
+            'name': '四川',
+            'value': '913'
           },
           {
-              "name": "上海",
-              "value": "598"
+            'name': '上海',
+            'value': '598'
           },
           {
-              "name": "西藏",
-              "value": "202"
+            'name': '西藏',
+            'value': '202'
           },
           {
-              "name": "安徽",
-              "value": "178"
+            'name': '安徽',
+            'value': '178'
           },
           {
-              "name": "陕西",
-              "value": "1307"
+            'name': '陕西',
+            'value': '1307'
           },
           {
-              "name": "江苏",
-              "value": "193"
+            'name': '江苏',
+            'value': '193'
           }
         ]
       ]
@@ -486,14 +486,14 @@ export default {
         })
       })
       var days = [
-        "清淡",
-        "酸甜",
-        "香辣"
+        '清淡',
+        '酸甜',
+        '香辣'
       ]
-      
+
       var news = [
-        '口味全国分布详情图', 
-        '口味全国分布详情图', 
+        '口味全国分布详情图',
+        '口味全国分布详情图',
         '口味全国分布详情图'
       ]
 
@@ -523,7 +523,7 @@ export default {
             data: days,
             tooltip: {
               formatter: days
-            },
+            }
           },
           tooltip: {
             show: true,
@@ -578,7 +578,7 @@ export default {
               color: '#7B93A7'
             },
             bottom: '10%',
-            left: "5%"
+            left: '5%'
           },
           grid: {
             right: '5%',
@@ -603,7 +603,7 @@ export default {
               show: false
             },
             axisLabel: {
-              //rotate:45,
+              // rotate:45,
               textStyle: {
                 fontSize: 14,
                 color: '#000000'
@@ -629,7 +629,7 @@ export default {
             left: '5%',
             label: {
               emphasis: {
-                show: false,
+                show: false
               }
             },
             itemStyle: {
@@ -649,7 +649,7 @@ export default {
               layoutCenter: ['30%', '30%'],
               geoIndex: 0,
               label: {
-                show: false,
+                show: false
               }
             },
             {
@@ -681,11 +681,11 @@ export default {
           })
         }
         res.sort(function(a, b) {
-          return b.value - a.value;
+          return b.value - a.value
         }).slice(0, 6)
 
         res.sort(function(a, b) {
-          return a.value - b.value;
+          return a.value - b.value
         })
         var res1 = []
         var res2 = []
@@ -702,9 +702,9 @@ export default {
                 color: '#2D3E53',
                 fontSize: 28
               },
-              subtextStyle:{          //对应样式
+              subtextStyle: { // 对应样式
                 // color:'#F27CDE',
-                fontSize:14
+                fontSize: 14
               },
               left: 20,
               top: 20
