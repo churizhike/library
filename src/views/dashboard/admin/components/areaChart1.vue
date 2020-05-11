@@ -47,7 +47,7 @@ export default {
           console.log(this.chartData)
           this.setOptions()
         }
-      })  
+      })
     },
     setOptions() {
       var chartData = this.chartData
