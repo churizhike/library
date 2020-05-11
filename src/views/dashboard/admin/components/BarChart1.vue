@@ -87,8 +87,8 @@ export default {
         },
         title: [
           {
-            text: '窗口纬度口味详情条形图',
-            subtext: '窗口纬度',
+            text: '菜品纬度口味详情条形图',
+            subtext: '菜品纬度',
             textStyle: {
               color: '#2D3E53',
               fontSize: 20,
