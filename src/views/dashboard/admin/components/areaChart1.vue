@@ -46,7 +46,7 @@ export default {
           })
           this.setOptions()
         }
-      })  
+      })
     },
     setOptions() {
       var chartData = this.chartData
@@ -92,7 +92,7 @@ export default {
         data.push([])
         news.push('类型图书—全国分布详情图')
       })
-      
+
       chartData.map((item, index) => {
         province.map(pro => {
           let a = true

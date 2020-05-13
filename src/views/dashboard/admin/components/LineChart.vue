@@ -61,7 +61,7 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
       this.setOptions(this.chartData)
     },
-    
+
     setOptions({ expectedData, actualData } = {}) {
       const options = {
         xAxis: {
