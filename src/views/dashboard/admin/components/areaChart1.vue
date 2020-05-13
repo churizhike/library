@@ -30,6 +30,12 @@ export default {
       default: []
     }
   },
+  data() {
+    return {
+      chartData: [],
+      axisList: []
+    }
+  },
   mounted() {
     this.initCharts()
   },
