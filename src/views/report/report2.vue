@@ -69,23 +69,9 @@ export default {
   data() {
     return {
       loading: false,
-      title: '菜品纬度数据详情',
-      options: [{
-        value: 'dish',
-        label: '菜品'
-      }, {
-        value: 'windows ',
-        label: '窗口'
-      }, {
-        value: 'taste',
-        label: '口味'
-      }],
+      title: '方式纬度数据详情',
       value: 'dish',
       apiData: [],
-      dictMap: {
-        amount: '付费金额',
-        value: '人数'
-      },
       chartData: {},
       tableData: []
     }
@@ -102,9 +88,10 @@ export default {
   methods: {
     getData(val) {
       this.loading = true
-      axios.get('http://172.16.8.174:9876/report/data', {
+      axios.get('http://172.16.8.174:6737/report/data', {
         headers: {
-          kind: val
+          kind: 'book_type',
+          dateName: 'month'
         }
       }).then(response => {
         if (response.status === 200) {
@@ -125,6 +112,7 @@ export default {
         }
       })
       axisList.sort()
+      axisList.splice(axisList.indexOf('2027'), 1)
       axisList.map((date, index) => {
         if (index === 0) {
           this.apiData.map(item => {

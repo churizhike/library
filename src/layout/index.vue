@@ -1,16 +1,19 @@
 <template>
   <div :class="classObj" class="app-wrapper">
+    <div style="background:#f0f2f5;height:150px;text-align:center;background:rgb(6, 52, 101)">
+      <img src="./zbnn.png" alt="" style="margin-top:23px">
+    </div>
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div :class="{hasTagsView:needTagsView}" class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
+      <div class="fixed-header">
         <navbar />
-        <tags-view v-if="needTagsView" />
+        <!-- <tags-view v-if="needTagsView" /> -->
       </div>
       <app-main />
-      <right-panel v-if="showSettings">
+      <!-- <right-panel v-if="showSettings">
         <settings />
-      </right-panel>
+      </right-panel> -->
     </div>
   </div>
 </template>
@@ -42,8 +45,8 @@ export default {
     }),
     classObj() {
       return {
-        hideSidebar: !this.sidebar.opened,
-        openSidebar: this.sidebar.opened,
+        // hideSidebar: !this.sidebar.opened,
+        // openSidebar: this.sidebar.opened,
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === 'mobile'
       }
@@ -51,7 +54,7 @@ export default {
   },
   methods: {
     handleClickOutside() {
-      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
+      // this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
     }
   }
 }
@@ -85,10 +88,10 @@ export default {
 
   .fixed-header {
     position: fixed;
-    top: 0;
+    top: 150px;
     right: 0;
     z-index: 9;
-    width: calc(100% - #{$sideBarWidth});
+    width: calc(100% - 270px);
     transition: width 0.28s;
   }
 

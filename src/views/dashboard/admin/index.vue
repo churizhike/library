@@ -2,44 +2,52 @@
   <div class="dashboard-editor-container">
     <div style="margin-bottom:32px;padding:0 16px">
       <el-row :gutter="32">
-        <el-col :xs="24" :sm="24" :lg="18" style="background:#fff;">
-          <!-- <line-chart :chart-data="lineData" style="background:#fff;margin-bottom:30px" />
-          <bar-chart :chart-data="barData" :type="typeBar" style="background:#fff;margin-bottom:30px" /> -->
+        <el-col :xs="24" :sm="24" :lg="24" style="background:#fff;">
           <area-chart />
         </el-col>
-        <el-col :xs="24" :sm="24" :lg="6">
-          <div v-for="(item, index) in pieData" :key="index" class="chart-wrapper">
+      </el-row>
+    </div>
+
+    <div style="margin-bottom:32px;padding:0 16px">
+      <el-row :gutter="32">
+        <el-col v-for="(item, index) in pieData.slice(0, 4)" :key="index" :xs="24" :sm="24" :lg="6">
+          <div class="chart-wrapper">
             <pie-chart :chart-data="item" :index-num="index" />
           </div>
         </el-col>
       </el-row>
     </div>
 
-    <line-chart :chart-data="lineData" style="background:#fff;margin-bottom:30px" />
+    <div style="margin-bottom:32px;">
+      <div class="chart-wrapper">
+        <bar-chart1 :chart-data="stackData" :type="typeStackBar" />
+      </div>
+    </div>
 
-    <!-- <div style="margin-bottom:32px;">
+    <div style="margin-bottom:32px;padding:0 16px">
       <el-row :gutter="32">
-        <el-col :xs="24" :sm="24" :lg="18" style="padding:16px 16px 0;margin-bottom:32px;">
-          <line-chart :chart-data="lineData" style="background:#fff;margin-bottom:30px" />
-          <bar-chart :chart-data="barData" :type="typeBar" style="background:#fff;margin-bottom:30px" />
-        </el-col>
-        <el-col :xs="24" :sm="24" :lg="6" style="padding-top:16px">
-          <div v-for="(item, index) in pieData" :key="index" class="chart-wrapper">
-            <pie-chart :chart-data="item" />
+        <el-col v-for="(item, index) in pieData.slice(4, 8)" :key="index" :xs="24" :sm="24" :lg="6">
+          <div class="chart-wrapper">
+            <pie-chart1 :chart-data="item" :index-num="index" />
           </div>
         </el-col>
       </el-row>
-    </div> -->
+    </div>
+
+    <div style="margin-bottom:32px;padding:0 16px">
+      <el-row :gutter="32">
+        <el-col :xs="24" :sm="24" :lg="12">
+          <line-chart :chart-data="MonthLineData" style="background:#fff;margin-bottom:30px" />
+        </el-col>
+        <el-col :xs="24" :sm="24" :lg="12">
+          <line-chart :chart-data="YearLineData" style="background:#fff;margin-bottom:30px" />
+        </el-col>
+      </el-row>
+    </div>
 
     <div style="margin-bottom:32px;">
       <div style="background:#fff;">
         <bar-chart :chart-data="barData" :type="typeBar" />
-      </div>
-    </div>
-
-    <div style="margin-bottom:32px;">
-      <div class="chart-wrapper">
-        <bar-chart1 :chart-data="stackData" :type="typeStackBar" />
       </div>
     </div>
   </div>
@@ -48,6 +56,7 @@
 <script>
 import LineChart from './components/LineChart'
 import PieChart from './components/PieChart'
+import PieChart1 from './components/PieChart1'
 import BarChart from './components/BarChart'
 import BarChart1 from './components/BarChart1'
 import areaChart from './components/areaChart1'
@@ -60,7 +69,8 @@ export default {
     PieChart,
     BarChart,
     BarChart1,
-    areaChart
+    areaChart,
+    PieChart1
   },
   data() {
     return {
@@ -69,29 +79,30 @@ export default {
       pieData: [],
       barData: {},
       stackData: {},
-      lineData: {}
+      MonthLineData: {},
+      YearLineData: {}
     }
   },
   mounted() {
     this.getPieData()
     this.getBarData()
     this.getStackData()
-    this.getLineData()
+    this.getMonthLineData()
+    this.getYearLineData()
     this.getAreaData()
   },
   methods: {
     getPieData() {
-      axios.get('http://172.16.8.174:9876/dimension/bar').then(response => {
+      axios.get('http://172.16.8.174:6737/dimension/bar').then(response => {
         if (response.status === 200) {
           this.pieData = response.data
-          console.log(88888888888888)
         }
       })
     },
     getStackData() {
-      axios.get('http://172.16.8.174:9876/dimension/cylindrical', {
+      axios.get('http://172.16.8.174:6737/dimension/cylindrical', {
         headers: {
-          kind: 'dish'
+          kind: 'book_kind'
         }
       }).then(response => {
         if (response.status === 200) {
@@ -100,30 +111,67 @@ export default {
       })
     },
     getBarData() {
-      axios.get('http://172.16.8.174:9876/dimension/cylindrical', {
+      axios.get('http://172.16.8.174:6737/dimension/cylindrical', {
         headers: {
-          kind: 'windows'
+          kind: 'age'
         }
       }).then(response => {
         if (response.status === 200) {
           this.barData = response.data
+          this.barData.field.sort()
         }
       })
     },
-    getLineData() {
-      axios.get('http://172.16.8.174:9876/dimension/broken').then(response => {
+    getMonthLineData() {
+      axios.get('http://172.16.8.174:6737/dimension/broken', {
+        headers: {
+          dateName: 'month'
+        }
+      }).then(response => {
         if (response.status === 200) {
-          this.lineData = {
-            field: response.data.field,
+          const temF = []
+          response.data.field.map(item => {
+            if (item.indexOf('2019') !== -1) {
+              temF.push(item)
+            }
+          })
+          this.MonthLineData = {
+            field: temF,
             value: []
           }
-          this.lineData.field.sort()
+          this.MonthLineData.field.sort()
           response.data.value.map(item => {
             const tem = []
             item.value.map(val => {
               tem.push(val.value)
             })
-            this.lineData.value.push({
+            this.MonthLineData.value.push({
+              name: item.name,
+              value: tem
+            })
+          })
+        }
+      })
+    },
+    getYearLineData() {
+      axios.get('http://172.16.8.174:6737/dimension/broken', {
+        headers: {
+          dateName: 'year'
+        }
+      }).then(response => {
+        if (response.status === 200) {
+          response.data.field.splice(response.data.field.indexOf('2027'), 1)
+          this.YearLineData = {
+            field: response.data.field,
+            value: []
+          }
+          this.YearLineData.field.sort()
+          response.data.value.map(item => {
+            const tem = []
+            item.value.map(val => {
+              tem.push(val.value)
+            })
+            this.YearLineData.value.push({
               name: item.name,
               value: tem
             })
@@ -132,16 +180,7 @@ export default {
       })
     },
     getAreaData() {
-      axios.get('http://172.16.8.174:9876/dimension/plat-map', {
-        headers: {
-          taste: 'light'
-        }
-      }).then(response => {
-        if (response.status === 200) {
-          console.log(response)
-          // this.barData = response.data
-        }
-      })
+
     }
   }
 }

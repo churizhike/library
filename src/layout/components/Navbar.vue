@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navbar" style="display:none">
     <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     toggleSideBar() {
-      this.$store.dispatch('app/toggleSideBar')
+      // this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
       await this.$store.dispatch('user/logout')
@@ -84,14 +84,18 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  height: 50px;
+  .el-breadcrumb__inner, .el-breadcrumb__inner a {
+    font-size: 20px !important;
+    font-weight: bold !important;
+  }
+  height: 90px;
   overflow: hidden;
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
   .hamburger-container {
-    line-height: 46px;
+    line-height: 90px;
     height: 100%;
     float: left;
     cursor: pointer;
@@ -100,6 +104,11 @@ export default {
 
     &:hover {
       background: rgba(0, 0, 0, .025)
+    }
+
+    .el-breadcrumb__item .el-breadcrumb__inner a{
+      font-size: 20px;
+      font-weight: bold;
     }
   }
 
@@ -115,7 +124,7 @@ export default {
   .right-menu {
     float: right;
     height: 100%;
-    line-height: 50px;
+    line-height: 90px;
 
     &:focus {
       outline: none;
@@ -164,4 +173,11 @@ export default {
     }
   }
 }
+</style>
+
+<style>
+.el-breadcrumb__item a {
+    font-size: 20px !important;
+    font-weight: bold !important;
+  }
 </style>

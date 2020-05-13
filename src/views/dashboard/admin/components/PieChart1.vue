@@ -59,8 +59,8 @@ export default {
         },
         legend: {
           left: 'center',
-          bottom: 10
-          // data: ['男', '女']
+          bottom: 10,
+          data: ['男', '女']
         },
         title: [
           {
@@ -85,19 +85,19 @@ export default {
             name: this.chartData.field[0],
             type: 'pie',
             // roseType: 'radius',
-            radius: ['40%', '60%'],
+            radius: '55%',
             avoidLabelOverlap: false,
             label: {
               show: false,
               position: 'center'
             },
-            emphasis: {
-              label: {
-                show: true,
-                fontSize: '30',
-                fontWeight: 'bold'
-              }
-            },
+            // emphasis: {
+            //   label: {
+            //     show: true,
+            //     fontSize: '30',
+            //     fontWeight: 'bold'
+            //   }
+            // },
             center: ['48%', '50%'],
             data: this.chartData.value,
             animationEasing: 'cubicInOut',
@@ -105,7 +105,6 @@ export default {
           }
         ]
       }
-      console.log(this.indexNum)
 
       this.chart.setOption(temOption)
     }

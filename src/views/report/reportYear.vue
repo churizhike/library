@@ -71,6 +71,7 @@ export default {
     return {
       loading: false,
       title: '年龄纬度数据详情',
+      value: 'taste',
       apiData: [],
       chartData: {},
       tableData: []
@@ -91,11 +92,12 @@ export default {
       axios.get('http://172.16.8.174:6737/report/data', {
         headers: {
           kind: 'age',
-          dateName: 'month'
+          dateName: 'year'
         }
       }).then(response => {
         if (response.status === 200) {
           this.loading = false
+          // console.log(response.data)
           this.apiData = response.data
           this.handleList()
         }
@@ -110,7 +112,9 @@ export default {
           axisList.push(item.dateStr)
         }
       })
-      axisList.sort()
+      axisList.sort((a, b) => {
+        return b - a
+      })
       axisList.splice(axisList.indexOf('2027'), 1)
       axisList.map((date, index) => {
         if (index === 0) {

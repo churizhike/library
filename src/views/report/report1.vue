@@ -3,16 +3,6 @@
     <div v-loading="loading" class="dashboard-editor-container">
       <el-row :gutter="32" style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
         <el-col :xs="24" :sm="24" :lg="24">
-          <!-- <span>按</span>
-          <el-select v-model="value" placeholder="请选择" style="margin:0 10px">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-          <span>查看</span> -->
           <div style="">
             <lineChart :chart-data="chartData" :title="title" />
           </div>
@@ -69,23 +59,9 @@ export default {
   data() {
     return {
       loading: false,
-      title: '窗口纬度数据详情',
-      options: [{
-        value: 'dish',
-        label: '菜品'
-      }, {
-        value: 'windows ',
-        label: '窗口'
-      }, {
-        value: 'taste',
-        label: '口味'
-      }],
+      title: '类型纬度数据详情',
       value: 'windows',
       apiData: [],
-      dictMap: {
-        amount: '付费金额',
-        value: '人数'
-      },
       chartData: {},
       tableData: []
     }
@@ -102,9 +78,10 @@ export default {
   methods: {
     getData(val) {
       this.loading = true
-      axios.get('http://172.16.8.174:9876/report/data', {
+      axios.get('http://172.16.8.174:6737/report/data', {
         headers: {
-          kind: val
+          kind: 'book_kind',
+          dateName: 'month'
         }
       }).then(response => {
         if (response.status === 200) {
@@ -125,6 +102,7 @@ export default {
         }
       })
       axisList.sort()
+      axisList.splice(axisList.indexOf('2027'), 1)
       axisList.map((date, index) => {
         if (index === 0) {
           this.apiData.map(item => {

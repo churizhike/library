@@ -61,6 +61,7 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
       this.setOptions(this.chartData)
     },
+    
     setOptions({ expectedData, actualData } = {}) {
       const options = {
         xAxis: {
@@ -73,8 +74,8 @@ export default {
         },
         title: [
           {
-            text: '日期纬度口味趋势折线图',
-            subtext: '日期纬度',
+            text: this.chartData.field[0].indexOf('-') === -1 ? '不同类型年份维度趋势图' : '不同类型月份维度趋势图',
+            subtext: '折线图',
             textStyle: {
               color: '#2D3E53',
               fontSize: 20,

@@ -88,7 +88,7 @@ export default {
         title: [
           {
             text: this.title,
-            subtext: this.title.substring(0, 4),
+            subtext: '条形图',
             textStyle: {
               color: '#2D3E53',
               fontSize: 20,

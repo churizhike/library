@@ -286,4 +286,10 @@ export default {
     }
   }
 }
+.el-breadcrumb {
+  line-height: 90px !important;
+}
+.avatar-container {
+  padding-top: 10px !important;
+}
 </style>

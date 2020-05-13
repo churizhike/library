@@ -3,12 +3,6 @@
     <div class="dashboard-editor-container">
       <div style="margin-bottom:32px;padding:0 16px">
         <el-row :gutter="32">
-          <el-col :span="12" style="background:#fff;">
-            <div>
-              <barChart1 :chart-data="chartData" :title="title" />
-            </div>
-
-          </el-col>
           <el-col :span="12" style="">
             <div style="width: 100%;padding:16px;background:#fff;height:500px;overflow:auto">
               <!-- <div style="text-align:center;margin-bottom:35px">
@@ -16,15 +10,14 @@
               </div> -->
               <el-table
                 :data="rankData"
-                border
                 style="width: 100%;margin-top:20px;"
                 max-height="500"
-                :header-cell-style="{background:'#efefef',height:'60px'}"
+                :header-cell-style="{background:'#bbdefb',height:'60px',fontSize:'18px',fontWeight:'bold'}"
                 header-align="center"
               >
                 <el-table-column
                   prop="kind"
-                  label="口味"
+                  label="出版商"
                   align="center"
                 />
                 <el-table-column
@@ -33,6 +26,11 @@
                   align="center"
                 />
               </el-table>
+            </div>
+          </el-col>
+          <el-col :span="12" style="background:#fff;">
+            <div>
+              <barChart1 :chart-data="chartData" :title="title" />
             </div>
           </el-col>
         </el-row>
@@ -50,49 +48,9 @@ export default {
   },
   data() {
     return {
-      title: '热销菜品纬度数据详情',
-      options: [{
-        value: 'dish',
-        label: '菜品'
-      }, {
-        value: 'windows ',
-        label: '窗口'
-      }, {
-        value: 'taste',
-        label: '口味'
-      }],
-      value: 'taste',
-      tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄'
-      }],
-      rankData: [
-        {
-          kind: '香辣',
-          value: '28282'
-        },
-        {
-          'kind': '清淡',
-          'value': '17006'
-        },
-        {
-          'kind': '酸甜',
-          'value': '14969'
-        }
-      ],
+      title: '热门出版商数据详情',
+      tableData: [],
+      rankData: [],
       chartData: {
         field: [],
         value: []
@@ -105,12 +63,12 @@ export default {
     }
   },
   mounted() {
-    this.getData('dish')
+    this.getData('publisher')
     this.handleList()
   },
   methods: {
     getData(newVal) {
-      axios.get('http://172.16.8.174:9876/rank/data', {
+      axios.get('http://172.16.8.174:6737/rank/info', {
         headers: {
           kind: newVal
         }

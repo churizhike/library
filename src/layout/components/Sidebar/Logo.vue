@@ -2,7 +2,7 @@
   <div class="sidebar-logo-container" :class="{'collapse':collapse}">
     <transition name="sidebarLogoFade">
       <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo">
+        <img v-if="logo" src="./logo.jpeg" class="sidebar-logo">
         <h1 v-else class="sidebar-title">{{ title }} </h1>
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
@@ -19,14 +19,15 @@
 export default {
   name: 'SidebarLogo',
   props: {
-    collapse: {
-      type: Boolean,
-      required: true
-    }
+    // collapse: {
+    //   type: Boolean,
+    //   required: true
+    // }
   },
   data() {
     return {
-      title: 'TYD Users Data Analytics System',
+      collapse: false,
+      title: '图书馆数据分析系统',
       logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
     }
   }
@@ -48,7 +49,7 @@ export default {
   width: 100%;
   height: 145px;
   line-height: 60px;
-  background: #2b2f3a;
+  background: #fff;
   text-align: center;
   overflow: hidden;
 
@@ -67,10 +68,10 @@ export default {
     & .sidebar-title {
       display: inline-block;
       margin: 0;
-      color: #fff;
+      color: #495067;
       font-weight: 600;
       line-height: 50px;
-      font-size: 12px;
+      font-size: 20px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
     }

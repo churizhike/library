@@ -1,6 +1,5 @@
 <template>
   <div>
-    <router-view />
     <div v-loading="loading" class="dashboard-editor-container">
       <el-row :gutter="32" style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
         <el-col :xs="24" :sm="24" :lg="24">
@@ -26,7 +25,7 @@
             border
             :header-cell-style="{background:'#efefef',height:'60px'}"
             header-align="center"
-            style="width: 100%;"
+            style="width: 100%"
             :default-sort="{prop: 'dateStr', order: 'ascending'}"
           >
             <el-table-column
@@ -37,7 +36,7 @@
             />
             <el-table-column
               prop="dimension"
-              label="口味"
+              label="菜品"
               align="center"
               sortable
             />
@@ -70,7 +69,8 @@ export default {
   data() {
     return {
       loading: false,
-      title: '年龄纬度数据详情',
+      title: '方式纬度数据详情',
+      value: 'dish',
       apiData: [],
       chartData: {},
       tableData: []
@@ -90,12 +90,13 @@ export default {
       this.loading = true
       axios.get('http://172.16.8.174:6737/report/data', {
         headers: {
-          kind: 'age',
-          dateName: 'month'
+          kind: 'book_type',
+          dateName: 'year'
         }
       }).then(response => {
         if (response.status === 200) {
           this.loading = false
+          // console.log(response.data)
           this.apiData = response.data
           this.handleList()
         }
@@ -110,7 +111,9 @@ export default {
           axisList.push(item.dateStr)
         }
       })
-      axisList.sort()
+      axisList.sort((a, b) => {
+        return b - a
+      })
       axisList.splice(axisList.indexOf('2027'), 1)
       axisList.map((date, index) => {
         if (index === 0) {
